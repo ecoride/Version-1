@@ -1,0 +1,34 @@
+{
+  "name": "StartMeUp",
+  "version": "1.0.0",
+  "authors": [
+    "Olivier Parent <olivier.parent@arteveldehs.be>"
+  ],
+  "description": "StartMeUp.io app developed at Artevelde University College Ghent",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.3.15",
+    "angular-animate": "~1.3.15",
+    "angular-aria": "~1.3.15",
+    "angular-cookies": "~1.3.15",
+    "angular-material": "^0.8.3",
+    "angular-messages": "~1.3.15",
+    "angular-resource": "~1.3.15",
+    "angular-route": "~1.3.15",
+    "angular-sanitize": "~1.3.15",
+    "angular-touch": "~1.3.15",
+    "bootstrap-sass-official": "~3.3.4",
+    "chartjs": "~1.0.2",
+    "fontawesome": "~4.3.0",
+    "leaflet": "~0.7.3",
+    "lodash": "^3.7.0"
+  }
+}

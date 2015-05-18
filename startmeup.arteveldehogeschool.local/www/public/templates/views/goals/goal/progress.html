@@ -1,0 +1,71 @@
+<md-toolbar>
+	<h1>Goal Progress</h1>
+</md-toolbar>
+<md-content class="md-padding">
+	<form action="">
+		<section>
+			<md-subheader class="md-accent">Details</md-subheader>
+			<md-input-container flex>
+				<label>Name</label>
+				<input required disabled ng-model="goal.name">
+			</md-input-container>
+
+			<md-input-container flex>
+				<label>Notes</label>
+				<textarea disabled ng-model="goal.notes" columns="1" rows="5" md-maxlength="150"></textarea>
+			</md-input-container>
+		</section>
+
+		<section>
+			<md-subheader class="md-accent">Target</md-subheader>
+			<div layout layout-sm="column">
+				<md-switch ng-model="target.value" aria-label="Switch Target Boolean" ng-show="target.labels" ng-show="targetType == 'TARGET_BOOLEAN'">
+					{{ target.value ? target.labels.true : target.labels.false }}
+				</md-switch>
+			</div>
+		</section>
+
+		<section>
+			<md-subheader class="md-accent">Target</md-subheader>
+			<div layout layout-sm="column">
+				<md-switch ng-model="target.value" aria-label="Switch Target Boolean" ng-show="target.labels" ng-show="targetType == 'TARGET_BOOLEAN'">
+					{{ target.value ? target.labels.true : target.labels.false }}
+				</md-switch>
+			</div>
+
+			<div ng-show="targetType == 'TARGET_DECIMAL' || targetType == 'TARGET_INTEGER'">
+				<div layout layout-sm="column">
+					<md-input-container flex ng-show="targetType == 'TARGET_DECIMAL'">
+						<label>Value</label>
+						<input type="number" min="0.00" max="10.00" step="0.50" ng-model="target.value">
+					</md-input-container>
+					<md-input-container flex ng-show="targetType == 'TARGET_INTEGER'">
+						<label>Value</label>
+						<input required type="number" min="0" max="10" step="1" ng-model="target.value" >
+					</md-input-container>
+					<md-input-container flex>
+						<label>Unit</label>
+						<input required ng-model="target.unit">
+					</md-input-container>
+				</div>
+				<div layout>
+					<div flex="10" layout layout-align="center center">
+						<span>steps</span>
+					</div>
+					<md-slider flex min="0" max="10" ng-model="color.red" aria-label="red" id="red-slider" class></md-slider>
+					<div flex="10" layout layout-align="center center">
+						<input type="number" ng-model="color.red" aria-label="red" aria-controls="red-slider">
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<br>
+		<br>
+		<nav layout layout-align="space-between center">
+			<md-button class="md-raised md-accent" href="#/goals"><i class="fa fa-cloud"></i> Save</md-button>
+			<md-button class="md-raised" href="#/goals/category/{{ categoryId }}/goal/{{ goalId }}/edit"><i class="fa fa-edit"></i> Edit</md-button>
+			<md-button class="" href="#/goals/category/{{ categoryId }}/goal/{{ goalId }}/statistics">Statistics <i class="fa fa-bar-chart"></i></md-button>
+		</nav>
+	</form>
+</md-content>

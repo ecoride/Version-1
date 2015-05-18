@@ -1,0 +1,71 @@
+<md-toolbar>
+	<div layout="row" layout-align="center center">
+		<i class="icon"></i>
+		<h1>Personal profile</h1>
+	</div>
+</md-toolbar>
+<md-content class="md-padding">
+	<form action="">
+		<div layout="row" layout-sm="column">
+			<md-input-container flex>
+				<label>First name</label>
+				<input ng-model="user.firstName" name="firstName" required>
+				<div ng-messages="user.firstName.$error">
+					<div ng-message="required">This field is required.</div>
+				</div>
+			</md-input-container>
+			<md-input-container flex>
+				<label>Last name</label>
+				<input ng-model="user.lastName" name="lastName" required>
+				<div ng-messages="user.lastName.$error">
+					<div ng-message="required">This field is required.</div>
+				</div>
+			</md-input-container>
+		</div>
+
+		<md-radio-group ng-model="user.gender" layout="row" layout-sm="row">
+			<md-radio-button value="f" aria-label="female" flex><i class="fa fa-venus"></i></md-radio-button>
+			<md-radio-button value="m" aria-label="male" flex><i class="fa fa-mars"></i></md-radio-button>
+			<md-radio-button value="o" aria-label="other" flex><i class="fa fa-transgender"></i></md-radio-button>
+		</md-radio-group>
+
+		<md-input-container>
+			<label>Birthday</label>
+			<input ng-model="user.birthday" type="date" placeholder="1900-12-31">
+		</md-input-container>
+
+		<div layout="row" layout-sm="column">
+			<md-input-container flex>
+				<label>Mobile phone</label>
+				<input ng-model="user.mobilePhone.number">
+			</md-input-container>
+			<md-switch flex ng-show="user.mobilePhone.number" ng-model="user.mobilePhone.visible" aria-label="Mobile phone">
+				Visibility: <i class="fa {{ user.mobilePhone.visible ? 'fa-eye' : 'fa-eye-slash' }}"></i>
+			</md-switch>
+		</div>
+
+		<div layout="row" layout-sm="column">
+			<md-input-container flex>
+				<label>Email</label>
+				<input ng-model="user.email.address" type="email">
+			</md-input-container>
+			<md-switch flex ng-show="user.email.address" ng-model="user.email.visible" aria-label="Email">
+				Visibility: <i class="fa {{ user.email.visible ? 'fa-eye' : 'fa-eye-slash' }}"></i>
+			</md-switch>
+		</div>
+
+		<md-input-container>
+			<label>Interests</label>
+			<input ng-model="user.interests" type="text">
+		</md-input-container>
+
+		<md-switch flex ng-model="user.collaborate" aria-label="Wish to collaborate">
+			{{ user.collaborate ? 'Yes I' : 'No I do not' }} wish to collaborate with others.
+		</md-switch>
+
+	</form>
+	<footer layout layout-align="space-between end">
+		<md-button href="#/registration/step/1/of/4">&lt; Go back</md-button>
+		<md-button href="#/registration/step/3/of/4" class="md-raised md-accent">Continue &gt;</md-button>
+	</footer>
+</md-content>

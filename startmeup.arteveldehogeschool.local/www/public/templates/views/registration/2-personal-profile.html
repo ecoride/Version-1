@@ -1,0 +1,75 @@
+<md-toolbar>
+	<div layout="row" layout-align="center center">
+		<i class="icon"></i>
+		<h1>Personal profile</h1>
+	</div>
+</md-toolbar>
+<md-content class="md-padding">
+	<form action="" name="registration_form">
+		<div layout="row" layout-sm="column">
+			<md-input-container flex>
+				<label>First name</label>
+				<input ng-model="user.given_name" name="given_name" required>
+				<ng-messages for="registration_form.givenName.$error" ng-messages-include="templates/partials/validation-messages.html"></ng-messages>
+			</md-input-container>
+			<md-input-container flex>
+				<label>Last name</label>
+				<input ng-model="user.family_name" name="family_name" required>
+				<ng-messages for="registration_form.familyName.$error" ng-messages-include="templates/partials/validation-messages.html"></ng-messages>
+			</md-input-container>
+		</div>
+
+		<md-radio-group ng-model="user.gender" layout="row" layout-sm="row">
+			<md-radio-button value="female" aria-label="female" flex><i class="fa fa-venus"></i></md-radio-button>
+			<md-radio-button value="male" aria-label="male" flex><i class="fa fa-mars"></i></md-radio-button>
+			<md-radio-button value="other" aria-label="other" flex><i class="fa fa-transgender"></i></md-radio-button>
+		</md-radio-group>
+
+		<div layout="row" layout-sm="column">
+			<md-input-container flex>
+				<label><i class="fa {{ settings.share_user_birthday ? 'fa-eye' : 'fa-eye-slash' }}"></i> Birthday</label>
+				<input ng-model="user.birthday" type="date" placeholder="1900-12-31">
+			</md-input-container>
+			<md-switch flex ng-show="user.birthday" ng-model="settings.share_user_birthday" aria-label="Share birthday ">
+				Share
+			</md-switch>
+		</div>
+
+		<div layout="row" layout-sm="column">
+			<md-input-container flex>
+				<label><i class="fa {{ settings.share_user_mobile ? 'fa-eye' : 'fa-eye-slash' }}"></i> Mobile phone</label>
+				<input ng-model="user.mobile">
+			</md-input-container>
+			<md-switch flex ng-show="user.mobile" ng-model="settings.share_user_mobile" aria-label="Share mobile">
+				Share
+			</md-switch>
+		</div>
+
+		<div layout="row" layout-sm="column">
+			<md-input-container flex>
+				<label><i class="fa {{ settings.share_user_email ? 'fa-eye' : 'fa-eye-slash' }}"></i> Email</label>
+				<input ng-model="user.email" type="email">
+			</md-input-container>
+			<md-switch flex ng-show="user.email" ng-model="settings.share_user_email" aria-label="Share email">
+				Share
+			</md-switch>
+		</div>
+
+		<div layout="row" layout-sm="column">
+			<p><i class="fa {{ user.settings.share_interests ? 'fa-eye' : 'fa-eye-slash' }}"></i> Interests:</p>
+			<md-chips ng-model="user.interests" placeholder="Add an interest" secondary-placeholder="+interest"></md-chips>
+			<md-switch flex ng-show="user.interests" ng-model="settings.share_interests" aria-label="Show interests">
+				Share
+			</md-switch>
+		</div>
+
+		<md-switch flex ng-model="settings.want_to_collaborate" aria-label="Wish to collaborate">
+			{{ user.settings.want_to_collaborate ? 'Yes I' : 'No I do not' }} wish to collaborate with others.
+		</md-switch>
+
+	</form>
+	<footer layout layout-align="space-between end">
+		<md-button href="#/registration/step/1/of/4">&lt; Go back</md-button>
+		<md-button href="#/registration/step/3/of/4" class="md-raised md-accent" ng-click="clickHandler()">Continue &gt;</md-button>
+	</footer>
+</md-content>

@@ -1,0 +1,51 @@
+<md-toolbar>
+	<div layout="row" layout-align="center center">
+		<i class="icon"></i>
+		<h1>User Account</h1>
+	</div>
+</md-toolbar>
+<md-content class="md-padding">
+	<form action="" name="registration_form">
+		<md-input-container>
+			<label>Username</label>
+			<input type="text" name="name" ng-model="user.name" required>
+			<ng-messages for="registration_form.name.$error" ng-messages-include="templates/partials/validation-messages.html"></ng-messages>
+		</md-input-container>
+
+		<div layout="row" layout-sm="column">
+			<md-input-container flex>
+				<md-input-container>
+					<label>New password</label>
+					<input type="password" name="password" ng-model="user.password" required>
+					<ng-messages for="registration_form.password.$error" ng-messages-include="templates/partials/validation-messages.html"></ng-messages>
+				</md-input-container>
+			</md-input-container>
+			<md-input-container flex>
+				<md-input-container>
+					<label>Confirm password</label>
+					<input type="password" name="password_confirm" ng-model="userProtected.passwordConfirm" required smu-match-model="user.password">
+					<ng-messages for="registration_form.password_confirm.$error" ng-messages-include="templates/partials/validation-messages.html"></ng-messages>
+				</md-input-container>
+			</md-input-container>
+		</div>
+
+		<div layout="row" layout-sm="column">
+			<md-input-container flex>
+				<label>Biography</label>
+				<textarea ng-model="user.biography" name="biography" columns="1" md-maxlength="140"></textarea>
+				<ng-messages for="registration_form.biography.$error" ng-messages-include="templates/partials/validation-messages.html"></ng-messages>
+			</md-input-container>
+		</div>
+
+<!--
+		<div layout="row" layout-sm="row">
+			<div class="profile-picture"></div>
+			<md-button>Choose a picture</md-button>
+		</div>
+-->
+	</form>
+	<footer layout layout-align="space-between end">
+		<md-button href="#/splash">&lt; Go back</md-button>
+		<md-button href="#/registration/step/2/of/4" class="md-raised md-accent" ng-click="clickHandler()">Continue &gt;</md-button>
+	</footer>
+</md-content>

@@ -1,0 +1,44 @@
+<md-toolbar>
+	<div layout="row" layout-align="center center">
+		<i class="icon"></i>
+		<h1>User Account</h1>
+	</div>
+</md-toolbar>
+<md-content class="md-padding">
+	<form action="">
+		<md-input-container>
+			<label>Username</label>
+			<input ng-model="user.account.username">
+		</md-input-container>
+
+		<md-input-container>
+			<label>Old password</label>
+			<input type="password" ng-model="user.account.password">
+		</md-input-container>
+
+		<div layout="row" layout-sm="column">
+			<md-input-container flex>
+				<md-input-container>
+					<label>New password</label>
+					<input type="password" ng-model="user.account.passwordNew">
+				</md-input-container>
+			</md-input-container>
+			<md-input-container flex>
+				<md-input-container>
+					<label>Confirm password</label>
+					<input type="password" ng-model="user.account.passwordConfirm">
+				</md-input-container>
+			</md-input-container>
+		</div>
+
+		<div layout="row">
+			<div class="profile-picture" flex></div>
+			<md-button flex>Choose a picture</md-button>
+		</div>
+
+	</form>
+	<footer layout layout-align="space-between end">
+		<md-button href="#/splash"><i class="fa fa-angle-left"></i> Go back</md-button>
+		<md-button href="#/registration/step/2/of/4" class="md-raised md-accent">Continue <i class="fa fa-angle-right"></i></md-button>
+	</footer>
+</md-content>

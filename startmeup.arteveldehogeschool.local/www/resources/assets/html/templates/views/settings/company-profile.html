@@ -1,0 +1,59 @@
+<md-toolbar>
+	<div layout="row" layout-align="center center">
+		<i class="icon"></i>
+		<h1>Company Information</h1>
+	</div>
+</md-toolbar>
+<md-content class="md-padding">
+	<form action="">
+		<div layout layout-sm="column">
+			<md-input-container flex>
+				<label>Company name</label>
+				<input ng-model="company.address.postalCode" name="postalCode" required>
+			</md-input-container>
+		</div>
+
+		<!-- http://microformats.org/wiki/h-adr -->
+
+		<h4>registered address</h4>
+		<div layout layout-sm="column">
+			<md-input-container flex>
+				<label>Street</label>
+				<input ng-model="company.address.street" name="street" required>
+			</md-input-container>
+		</div>
+
+		<div layout layout-sm="column">
+			<md-input-container flex>
+				<label>Postal code</label>
+				<input ng-model="company.address.postalCode" name="postalCode" required>
+			</md-input-container>
+			<md-input-container flex>
+				<label>Locality</label>
+				<input ng-model="company.address.locality" name="locality" required>
+			</md-input-container>
+		</div>
+		<div layout layout-sm="column">
+			<md-input-container flex>
+				<label>Region</label>
+				<input ng-model="company.address.region" name="region">
+			</md-input-container>
+			<md-input-container flex>
+				<label>Country</label>
+				<input ng-model="company.address.country" name="country" required>
+			</md-input-container>
+		</div>
+
+		<p>I&rsquo;m a:</p>
+		<md-radio-group ng-model="data.role">
+			<md-radio-button value="prestarter" aria-label="prestarter">prestarter</md-radio-button>
+			<md-radio-button value="starter" aria-label="starter">starter</md-radio-button>
+			<md-radio-button value="serial" aria-label="serial entrepreneur" lang="en">serial entrepreneur</md-radio-button>
+		</md-radio-group>
+
+	</form>
+	<footer layout layout-align="space-between end">
+		<md-button href="#/registration/step/2/of/4"><i class="fa fa-angle-left"></i> Go back</md-button>
+		<md-button href="#/registration/step/4/of/4" class="md-raised md-accent">Continue <i class="fa fa-angle-right"></i></md-button>
+	</footer>
+</md-content>

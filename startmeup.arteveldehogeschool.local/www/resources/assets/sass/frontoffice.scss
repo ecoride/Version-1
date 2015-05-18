@@ -1,0 +1,74 @@
+@import 'font-awesome';
+
+@import 'fonts';
+@import 'palette';
+
+.view {
+  min-height: 100vh;
+  min-width: 100vw;
+  overflow: auto;
+  position: absolute;
+  &.splash {
+    div {
+      width: 100%;
+    }
+    p {
+      text-align: center;
+    }
+    .logo {
+      max-width: 50vh;
+      max-height: 50vw;
+    }
+  }
+}
+
+body {
+  font-family: $smu-ff;
+  font-weight: 400;
+}
+
+h1, h2, h3 {
+  color: $smu-c-accent;
+  font-weight: 300;
+  text-align: center;
+}
+
+// Material Design
+md {
+  &-toolbar {
+    h1 {
+      font-size: 1em;
+    }
+  }
+}
+
+a {
+  text-decoration: none;
+}
+
+header {
+  .icon {
+    border: 3px solid $smu-c-accent;
+    border-radius: 50%;
+    height: 3rem;
+    margin-right: 1rem;
+    width: 3rem;
+  }
+  h1 {
+    line-height: 3rem;
+    margin: 0;
+  }
+}
+
+.profile-picture {
+  border-radius: 50%;
+  width: 10rem;
+  height: 10rem;
+  border: 3px solid $smu-c-accent;
+}
+
+.smu {
+  &-map {
+    height: 100vh;
+  }
+}

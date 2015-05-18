@@ -1,0 +1,72 @@
+<md-toolbar>
+	<div layout="row" layout-align="center center">
+		<i class="icon"></i>
+		<h1>Personal profile</h1>
+	</div>
+</md-toolbar>
+<md-content class="md-padding">
+	<form action="">
+		<div layout layout-sm="row">
+			<md-input-container flex>
+				<label>First name</label>
+				<input ng-model="user.firstName" name="firstName" required>
+				<div ng-messages="StyleGuideForm.firstName.$error">
+					<div ng-message="required">Dit veld is verplicht.</div>
+				</div>
+			</md-input-container>
+			<md-input-container flex>
+				<label>Last name</label>
+				<input ng-model="user.lastName" name="lastName" required>
+				<div ng-messages="StyleGuideForm.lastName.$error">
+					<div ng-message="required">Dit veld is verplicht.</div>
+				</div>
+			</md-input-container>
+		</div>
+
+		<md-radio-group ng-model="user.gender" layout layout-sm="row">
+			<md-radio-button value="f" aria-label="female" flex><i class="fa fa-venus"></i></md-radio-button>
+			<md-radio-button value="m" aria-label="male" flex><i class="fa fa-mars"></i></md-radio-button>
+			<md-radio-button value="o" aria-label="other" flex><i class="fa fa-transgender"></i></md-radio-button>
+		</md-radio-group>
+
+		<md-input-container>
+			<label>Birthday</label>
+			<input ng-model="user.birthday" type="date" placeholder="1900-12-31">
+		</md-input-container>
+
+		<div layout layout-sm="row">
+			<md-input-container flex>
+				<label>Mobile phone</label>
+				<input ng-model="user.mobilePhone">
+			</md-input-container>
+			<md-switch flex ng-model="data.sw1" ng-true-value="'public'" ng-false-value="'private'"  aria-label="Switch 1">
+				<i class="fa fa-eye"></i> {{ data.sw1 }}
+			</md-switch>
+		</div>
+
+		<div layout layout-sm="row">
+			<md-input-container flex>
+				<label>Email</label>
+				<input ng-model="user.email" type="email">
+			</md-input-container>
+			<md-switch flex ng-model="data.sw2" ng-true-value="'public'" ng-false-value="'private'"  aria-label="Switch 1">
+				<i class="fa fa-eye"></i> {{ data.sw2 }}
+			</md-switch>
+		</div>
+
+		<md-input-container>
+			<label>Interests</label>
+			<input ng-model="user.interests" type="text">
+		</md-input-container>
+
+		<div layout layout-sm="column">
+			<md-switch flex  ng-model="data.swCollaboration" ng-true-value="'Yes I do want to collaborate with others'" ng-false-value="'No I don&rsquo;twant to collaborate with others'"  aria-label="Switch 1">
+				{{ data.swCollaboration }}
+			</md-switch>
+		</div>
+	</form>
+	<footer layout layout-align="space-between end">
+		<md-button href="#/registration/step/1/of/4"><i class="fa fa-angle-left"></i> Go back</md-button>
+		<md-button href="#/registration/step/3/of/4" class="md-raised md-accent">Continue <i class="fa fa-angle-right"></i></md-button>
+	</footer>
+</md-content>

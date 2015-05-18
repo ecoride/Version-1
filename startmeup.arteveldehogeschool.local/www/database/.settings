@@ -1,0 +1,6 @@
+APP=smu
+
+DB_NAME=${APP}_arteveldehogeschool_be
+DB_USER=${APP}_db_user
+DB_PASS=${APP}_db_password
+DB_DUMP=`dirname $0`/dumps

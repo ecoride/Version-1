@@ -1,0 +1,105 @@
+<md-toolbar>
+    <h1>Add New Goal</h1>
+</md-toolbar>
+<md-content class="md-padding">
+	<form action="">
+		<section>
+			<md-subheader class="md-accent">Description</md-subheader>
+			<md-input-container>
+				<label>Goal Name</label>
+				<input required ng-model="goal.name">
+			</md-input-container>
+
+			<md-input-container flex>
+				<label>Notes</label>
+				<textarea ng-model="goal.notes" columns="1" rows="5" md-maxlength="150"></textarea>
+			</md-input-container>
+
+			<div layout layout-sm="column" layout-align="center center">
+				<md-button class="md-accent" href="#/nearby">Add location</md-button>
+				<md-input-container flex>
+					<label>Location</label>
+					<input ng-model="goal.location">
+				</md-input-container>
+			</div>
+		</section>
+
+		<section>
+			<md-subheader class="md-accent">Deadline</md-subheader>
+			<div layout layout-sm="column">
+				<md-input-container flex>
+					<label>Date</label>
+					<input type="date" placeholder="2015-12-31" ng-model="goal.deadline.date">
+				</md-input-container>
+
+				<md-input-container flex>
+					<label>Time</label>
+					<input type="time" placeholder="23:59:59" ng-model="goal.deadline.time">
+				</md-input-container>
+			</div>
+			<md-switch ng-model="goal.deadline.reminder" aria-label="">
+				Reminder <i class="fa {{ goal.deadline.reminder ? 'fa-bell-o' : 'fa-bell-slash-o' }}"></i>
+			</md-switch>
+		</section>
+
+		<section>
+			<md-subheader class="md-accent">Target</md-subheader>
+
+			<md-select flex="100" ng-model="targetType" placeholder="Target Type">
+				<md-option ng-value="type.id" ng-repeat="type in targetTypes">{{ type.name }}</md-option>
+			</md-select>
+
+			<div layout layout-sm="column" ng-show="targetType == 'TARGET_BOOLEAN'">
+				<md-select flex="50" ng-model="target.labels" placeholder="Label">
+					<md-select-label>Switch labels</md-select-label>
+					<md-option ng-value="{ true: 'Yes', false: 'No' }">Yes/No</md-option>
+					<md-option ng-value="{ true: 'True', false: 'False' }">True/False</md-option>
+				</md-select>
+				<md-switch flex="50" ng-disabled="true" ng-model="target.value" aria-label="Switch Target Boolean" ng-show="target.labels">
+					{{ target.value ? target.labels.true : target.labels.false }}
+				</md-switch>
+			</div>
+
+			<div ng-show="targetType == 'TARGET_DECIMAL' || targetType == 'TARGET_INTEGER'">
+				<div layout layout-sm="column">
+					<md-input-container flex>
+						<label>Minimum</label>
+						<input type="number" ng-model="target.valueMin">
+					</md-input-container>
+					<md-input-container flex>
+						<label>Maximum</label>
+						<input type="number" ng-model="target.valueMax">
+					</md-input-container>
+				</div>
+				<div layout layout-sm="column">
+					<md-input-container flex ng-show="targetType == 'TARGET_DECIMAL'">
+						<label>Value</label>
+						<input type="number" min="0.00" max="10.00" step="0.50" ng-model="target.value">
+					</md-input-container>
+					<md-input-container flex ng-show="targetType == 'TARGET_INTEGER'">
+						<label>Value</label>
+						<input required type="number" min="0" max="10" step="1" ng-model="target.value" >
+					</md-input-container>
+					<md-input-container flex>
+						<label>Unit</label>
+						<input required ng-model="target.unit">
+					</md-input-container>
+				</div>
+				<div layout>
+					<div flex="10" layout layout-align="center center">
+						<span>step</span>
+					</div>
+					<md-slider flex  md-discrete min="{{target.value }}" max="10" ng-model="color.red" aria-label="red" id="red-slider" class></md-slider>
+					<div flex="10" layout layout-align="center center">
+						<input type="number" min="0" max="10" step ng-model="color.red" aria-label="red" aria-controls="red-slider">
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<br><br>
+		<nav class="smu-button-bar" layout layout-align="space-between center">
+			<md-button class="md-accent md-raised" href="#/goals/"><i class="fa fa-cloud"></i> Save</md-button>
+		</nav>
+	</form>
+</md-content>

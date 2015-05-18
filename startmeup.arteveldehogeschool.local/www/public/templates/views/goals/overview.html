@@ -1,0 +1,32 @@
+<md-toolbar>
+	<h1>Goals</h1>
+</md-toolbar>
+<md-content class="md-padding" ng-controller="GoalsCtrl">
+	<section ng-repeat="category in categories">
+		<md-subheader class="md-accent">
+			{{ category.name }}
+		</md-subheader>
+		<md-list>
+			<md-item layout="row" class="md-padding" ng-repeat="goal in category.goals">
+				<md-button class="" ng-href="#/goals/category/{{ category.id }}/goal/{{ goal.id }}/update" flex style="text-transform: none">
+					<div layout="row" layout-align="space-between center">
+						<div><i ng-show="goal.completed" class="fa fa-check-circle-o"></i><i ng-show="!goal.completed" class="fa fa-circle-o"></i> {{ goal.name }}</div>
+						<div>&gt;</div>
+					</div>
+				</md-button>
+			</md-item>
+			<br>
+			<md-item>
+				<md-button class="md-raised md-primary" ng-href="#/goals/category/{{ category.id }}/goal/add"><i class="fa fa-plus"></i> New Goal</md-button>
+			</md-item>
+			<br><br>
+			<md-divider ng-if="!$last"></md-divider>
+		</md-list>
+	</section>
+
+	<br><br>
+	<nav class="smu-button-bar" layout="row" layout-align="space-between center">
+		<md-button class="md-raised md-accent" href="#/goals/category/add"><i class="fa fa-list"></i> New Category</md-button>
+		<md-button class="" href="#/goals/statistics">Statistics <i class="fa fa-bar-chart"></i></md-button>
+	</nav>
+</md-content>

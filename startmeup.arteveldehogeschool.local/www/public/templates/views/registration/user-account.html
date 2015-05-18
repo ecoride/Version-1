@@ -1,0 +1,45 @@
+<script type="text/ng-template" id="smu-validation-messages">
+	<ng-message when="required">This is required.</ng-message>
+	<ng-message when="smuMatchModel">The passwords do not match.</ng-message>
+</script>
+<md-toolbar>
+	<div layout="row" layout-align="center center">
+		<i class="icon"></i>
+		<h1>User Account</h1>
+	</div>
+</md-toolbar>
+<md-content class="md-padding">
+	<form action="" name="registrationForm">
+		<md-input-container>
+			<label>Username</label>
+			<input type="text" name="username" required ng-model="user.username">
+			<ng-messages for="registrationForm.username.$error" ng-messages-include="smu-validation-messages"></ng-messages>
+		</md-input-container>
+
+		<div layout="row" layout-sm="column">
+			<md-input-container flex>
+				<md-input-container>
+					<label>New password</label>
+					<input type="password" name="password" required ng-model="user.password">
+					<ng-messages for="registrationForm.password.$error" ng-messages-include="smu-validation-messages"></ng-messages>
+				</md-input-container>
+			</md-input-container>
+			<md-input-container flex>
+				<md-input-container>
+					<label>Confirm password</label>
+					<input type="password" name="password_confirm" required ng-model="userProtected.passwordConfirm" smu-match-model="user.password">
+					<ng-messages for="registrationForm.password_confirm.$error" ng-messages-include="smu-validation-messages"></ng-messages>
+				</md-input-container>
+			</md-input-container>
+		</div>
+
+<!--		<div layout="row" layout-sm="row">
+			<div class="profile-picture"></div>
+			<md-button>Choose a picture</md-button>
+		</div>-->
+	</form>
+	<footer layout layout-align="space-between end">
+		<md-button href="#/splash">&lt; Go back</md-button>
+		<md-button href="#/registration/step/2/of/4" class="md-raised md-accent" ng-click="clickHandler()">Continue &gt;</md-button>
+	</footer>
+</md-content>

@@ -1,0 +1,15 @@
+<md-toolbar>
+	<h1>Settings</h1>
+</md-toolbar>
+<md-content class="md-padding">
+	<md-list ng-controller="SettingsCtrl">
+		<md-item layout="row" ng-repeat="item in menu">
+			<md-button class="md-button md-accent" ng-href="{{ item.uri }}" flex style="text-transform: none">
+				<div layout="row" layout-align="space-between center">
+					<div>{{ item.label }}</div>
+					<div>&gt;</div>
+				</div>
+			</md-button>
+		</md-item>
+	</md-list>
+</md-content>
